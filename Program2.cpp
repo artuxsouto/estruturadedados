@@ -41,18 +41,19 @@ int main(){
 		printf("\nA relação é de %d candidatos por vaga\n", vetorCursos[j].somar());
 	}
 	int findCurso;
+	int achou = 0;
 	printf("\nInform um código de curso: ");
 	scanf("%d", &findCurso);
 	
 	for (int n = 0; n < 5; n++){
-		while (vetorCursos[n].codigoCurso == findCurso){
+		if (vetorCursos[n].codigoCurso == findCurso){
+			achou = 1;
 			printf("\nPossui %d vagas", vetorCursos[n].tVagas);
 			printf("\nA relação é de [%d] candidatos por vaga\n", vetorCursos[n].somar());
-			break;
-		}
-		if (n == 5){
-			printf("\nCURSO INEXISTENTE");
 		}
 	}
+	if (achou == 0){
+		printf("\nCURSO INEXISTENTE");
+}
 	return printf("\n\nFIM!\n");
 }
