@@ -28,6 +28,8 @@ struct noPilha *desempilhar(struct noPilha *topoPilha){
 	}
 	
 	topoPilha = percorrePilha->proximoNo;
+
+	if (topoPilha != NULL)
 	topoPilha->noAnterior = NULL;
 	
 	free(percorrePilha);
@@ -39,7 +41,7 @@ void imprimirPilha(struct noPilha *topoPilha){
 	struct noPilha *noAtual = topoPilha;
 	
 	if (noAtual == NULL){
-		printf("Lista Vazia!");
+		printf("Pilha Vazia!");
 	}
 	
 	while (noAtual != NULL){
@@ -76,7 +78,9 @@ int main(){
 	}
 	
 	int qtd = contarElementos(topoPilha);
-	printf("\nQuantidade de elementos na pilha: %d", qtd);
+	printf("\nQuantidade de elementos na pilha: %d\n", qtd);
+
+	printf("\n***Removendo elementos da Pilha***\n");
 	
 	for (int j = 0; j < qtd; j++){
 		topoPilha = desempilhar(topoPilha);
