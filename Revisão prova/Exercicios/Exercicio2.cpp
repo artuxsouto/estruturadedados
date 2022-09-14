@@ -4,11 +4,11 @@
 struct noPilha{
 	struct noPilha *noAnterior;
 	int idade;
-	char sexo;
+	int sexo;
 	struct noPilha *proximoNo;	
 };
 
-struct noPilha *empilhar(struct noPilha *inicioPilha, int idade, char sexo){
+struct noPilha *empilhar(struct noPilha *inicioPilha, int idade, int sexo){
 	struct noPilha *novoNo = (struct noPilha*)malloc(sizeof(struct noPilha));
 	
 	novoNo->noAnterior = NULL;
@@ -53,15 +53,15 @@ int main(){
 	printf("Programa exercicio 2 em execucao!\n");
 	
 	int idade;
-	char sexo;
+	int sexo;
 	
 	for (int i = 0; i < 5; i++){
 		
 		printf("\nDigite a idade: ");
 		scanf("%d", &idade);
 		
-		printf("\nDigite o sexo: ");
-		scanf("%s", &sexo);
+		printf("\nDigite o sexo(1-M, 2-F): ");
+		scanf("%d", &sexo);
 		
 		topoPilha = empilhar(topoPilha, idade, sexo);
 	}
@@ -70,9 +70,9 @@ int main(){
 	imprimirPilha(topoPilha);
 	
 	while (topoPilha != NULL){
-		if (( topoPilha->sexo == 'F') || ( topoPilha->sexo == 'f')){
-			printf("\n sexo: %c", topoPilha->sexo);
-			printf("\n idade: %d", topoPilha->idade);
+		if ( topoPilha->sexo == 2){
+			printf("\nIdade: %d", topoPilha->idade);
+			printf("\nSexo: Feminino");
 		}
 		topoPilha = desempilhar(topoPilha);
 	}
