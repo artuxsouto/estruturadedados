@@ -54,7 +54,7 @@ int main(){
 
     cout << "*** Exercicio 6 em execucao*** Informe a altura em seguida idade\n\n";
 
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i < 10; i++){
         cin >> altura >> idade;
         inicioPilha = empilhar(inicioPilha, altura, idade);    
     }
